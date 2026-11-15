@@ -19,7 +19,7 @@
       https://repo.papermc.io/service/rest/repository/browse/maven-public/io/papermc/paper/paper-api/
       e troque pelo nome exato da pasta da versao 26.3 que estiver publicada.
     -->
-    <paper.api.version>26.3-R0.1-SNAPSHOT</paper.api.version>
+    <version>[26.3.build,)</version>
   </properties>
 
   <repositories>
