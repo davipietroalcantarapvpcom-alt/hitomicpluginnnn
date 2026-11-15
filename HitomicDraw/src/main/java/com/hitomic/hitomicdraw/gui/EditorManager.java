@@ -481,6 +481,6 @@ public final class EditorManager {
     }
 
     private void closeLater(Player player) {
-        Bukkit.getScheduler().runTask(plugin, player::closeInventory);
+        Bukkit.getScheduler().runTask(plugin, (Runnable) player::closeInventory);
     }
 }
