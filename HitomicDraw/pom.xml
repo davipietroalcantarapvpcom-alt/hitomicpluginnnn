@@ -11,16 +11,11 @@
   <name>HitomicDraw</name>
   <description>Pixel art em mapas do Minecraft com envio e avaliacao de desenhos.</description>
 
-  <properties>
+<properties>
     <maven.compiler.release>25</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!--
-      Versao da API do Paper. Se o Maven nao encontrar esta, abra
-      https://repo.papermc.io/service/rest/repository/browse/maven-public/io/papermc/paper/paper-api/
-      e troque pelo nome exato da pasta da versao 26.3 que estiver publicada.
-    -->
-    <version>[26.3.build,)</version>
-  </properties>
+    <paper.api.version>[26.3.build,)</paper.api.version>
+</properties>
 
   <repositories>
     <repository>
