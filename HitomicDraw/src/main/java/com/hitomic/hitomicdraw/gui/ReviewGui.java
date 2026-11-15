@@ -1,6 +1,4 @@
-```java
 package com.hitomic.hitomicdraw.gui;
-
 import com.hitomic.hitomicdraw.HitomicDrawPlugin;
 import com.hitomic.hitomicdraw.model.Drawing;
 import com.hitomic.hitomicdraw.model.Submission;
@@ -166,4 +164,3 @@ public final class ReviewGui {
         event.setCancelled(true);
     }
 }
-```
