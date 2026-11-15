@@ -1,3 +1,4 @@
+```java
 package com.hitomic.hitomicdraw.gui;
 
 import com.hitomic.hitomicdraw.HitomicDrawPlugin;
@@ -117,7 +118,7 @@ public final class ReviewGui {
             return;
         }
         if (player.getGameMode() == GameMode.CREATIVE) {
-            Bukkit.getScheduler().runTask(plugin, player::updateInventory);
+            Bukkit.getScheduler().runTask(plugin, (Runnable) player::updateInventory);
         }
         Inventory top = event.getView().getTopInventory();
         if (!(top.getHolder(false) instanceof ReviewHolder holder)) {
@@ -128,16 +129,16 @@ public final class ReviewGui {
             return;
         }
         if (!player.hasPermission(HitomicDrawPlugin.PERM_ADMIN)) {
-            Bukkit.getScheduler().runTask(plugin, player::closeInventory);
+            Bukkit.getScheduler().runTask(plugin, (Runnable) player::closeInventory);
             return;
         }
         Submission submission = store.getSubmission(holder.submissionId());
         if (submission == null) {
-            Bukkit.getScheduler().runTask(plugin, player::closeInventory);
+            Bukkit.getScheduler().runTask(plugin, (Runnable) player::closeInventory);
             return;
         }
         if (slot == CLOSE) {
-            Bukkit.getScheduler().runTask(plugin, player::closeInventory);
+            Bukkit.getScheduler().runTask(plugin, (Runnable) player::closeInventory);
         } else if (slot == APPROVE || slot == REJECT) {
             if (submission.getStatus() != SubmissionStatus.PENDING) {
                 return;
@@ -165,3 +166,4 @@ public final class ReviewGui {
         event.setCancelled(true);
     }
 }
+```
