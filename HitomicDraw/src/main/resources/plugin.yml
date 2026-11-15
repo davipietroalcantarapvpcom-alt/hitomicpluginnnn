@@ -1,0 +1,23 @@
+name: HitomicDraw
+version: '${project.version}'
+main: com.hitomic.hitomicdraw.HitomicDrawPlugin
+api-version: '26.3'
+description: Pixel art em mapas do Minecraft com envio e avaliacao de desenhos.
+authors: [Hitomic]
+
+commands:
+  desenhar:
+    description: Sistema de desenho HitomicDraw.
+    usage: /<command> <criar|abrir|receber|meus|avaliacoes|ver|aprovar|rejeitar>
+    permission: hitomicdraw.use
+    aliases: [hdraw]
+
+permissions:
+  hitomicdraw.use:
+    description: Permite criar, editar e enviar desenhos.
+    default: true
+  hitomicdraw.admin:
+    description: Permite avaliar desenhos e administrar o plugin.
+    default: op
+    children:
+      hitomicdraw.use: true

@@ -1,0 +1,151 @@
+# ============================================================
+#  HitomicDraw - configuracao
+#  Codigos de cor com "&" (ex.: &a verde) e hex com &#RRGGBB.
+# ============================================================
+
+settings:
+  # Intervalo do salvamento automatico (gravacao em thread separada).
+  autosave-seconds: 30
+  # Quantos desenhos ainda nao enviados (rascunho + finalizado) cada jogador pode ter.
+  max-active-drawings: 3
+  # Abrir o editor automaticamente ao usar /desenhar criar.
+  open-editor-on-create: false
+  # Quantos passos de desfazer/refazer ficam guardados por sessao.
+  undo-limit: 50
+  # Tempo (s) para confirmar as acoes "Limpar" e "Finalizar" (clicar duas vezes).
+  confirm-timeout-seconds: 5
+  # Espera (ticks) para juntar pinceladas seguidas em uma unica atualizacao do mapa.
+  map-update-delay-ticks: 10
+  # Avisar administradores online quando chegar uma participacao nova.
+  notify-admins: true
+  # Mundo usado para registrar os mapas (vazio = primeiro mundo do servidor).
+  map-world: ""
+  # Formato e fuso das datas exibidas.
+  date-format: "dd/MM/yyyy HH:mm:ss"
+  timezone: "America/Sao_Paulo"
+
+messages:
+  prefix: "&8[&6HitomicDraw&8] &7"
+
+  # --- geral
+  no-permission: "&cVoce nao tem permissao para isso."
+  only-players: "&cEste comando so pode ser usado por jogadores."
+  error-internal: "&cOcorreu um erro interno. Avise a administracao."
+  reloaded: "&aConfiguracao recarregada."
+  click-to-view: "&7Clique para ver"
+
+  help-player:
+    - "&6&lHitomicDraw &7- comandos"
+    - "&e/desenhar criar &7- recebe um mapa em branco"
+    - "&e/desenhar abrir [id] &7- abre o editor"
+    - "&e/desenhar receber [id] &7- recupera o mapa de um desenho seu"
+    - "&e/desenhar meus &7- lista seus desenhos"
+    - "&7Para enviar: finalize o desenho e &fsolte o mapa (Q)&7 no chao."
+  help-admin:
+    - "&c&lAdministracao"
+    - "&e/desenhar avaliacoes [pendentes|aprovadas|rejeitadas|todas] [pagina]"
+    - "&e/desenhar ver <id> &7- abre a participacao"
+    - "&e/desenhar aprovar <id> &7- aprova"
+    - "&e/desenhar rejeitar <id> [motivo] &7- rejeita"
+    - "&e/desenhar recarregar &7- recarrega a configuracao"
+
+  # --- criar / abrir / receber
+  limit-reached: "&cVoce ja tem {max} desenhos em andamento. Termine ou envie um antes de criar outro."
+  created: "&aDesenho &e#{id} &acriado! Voce recebeu um mapa em branco. Use &e/desenhar abrir &apara editar."
+  created-full: "&aDesenho &e#{id} &acriado, mas seu inventario esta cheio. Libere espaco e use &e/desenhar receber {id}&a."
+  drawing-not-found: "&cDesenho nao encontrado."
+  not-owner: "&cEste desenho pertence a &f{owner}&c."
+  no-drawings: "&cVoce nao tem desenhos em andamento. Use &e/desenhar criar&c."
+  choose-drawing: "&7Voce tem varios desenhos ({ids}). Segure o mapa ou informe o id: &e/desenhar abrir <id>"
+  already-finished: "&eO desenho #{id} ja foi finalizado. Solte (Q) o mapa no chao para enviar."
+  already-submitted: "&cO desenho #{id} ja foi enviado e nao pode mais ser alterado."
+  already-have: "&eVoce ja tem o mapa do desenho #{id} no inventario."
+  received: "&aVoce recebeu o mapa do desenho #{id}."
+  inventory-full: "&cSeu inventario esta cheio. Libere espaco e use &e/desenhar receber {id}&c."
+  mine-empty: "&7Voce ainda nao criou nenhum desenho."
+  mine-header: "&6Seus desenhos:"
+  mine-line: "&e#{id} &7- {state}{result}"
+  state-draft: "&fem edicao"
+  state-finished: "&afinalizado (solte o mapa para enviar)"
+  state-submitted: "&bem avaliacao/enviado"
+
+  # --- editor (barra de acao)
+  ab-editor-hint: "&7Esq.: pintar &8| &7Dir.: ferramentas &8| &7Shift+Esq.: copiar cor &8| &7Q: desfazer &8| &7F: refazer"
+  ab-color: "&7Cor: &f{color}"
+  ab-tool: "&7Ferramenta: &f{tool}"
+  ab-nothing-undo: "&cNada para desfazer."
+  ab-nothing-redo: "&cNada para refazer."
+  ab-confirm-clear: "&cClique em Limpar de novo para confirmar."
+  ab-confirm-finish: "&aClique em Finalizar de novo para confirmar."
+  ab-cleared: "&7Desenho limpo."
+  ab-already-clear: "&7O desenho ja esta em branco."
+
+  # --- titulos das GUIs
+  gui-canvas-title: "&8Desenho #{id} - clique direito: ferramentas"
+  gui-tools-title: "&8Ferramentas - Desenho #{id}"
+  gui-review-title: "&8Avaliacao #{id}"
+  gui-pixel-lore:
+    - "&7Esquerdo: &fpintar"
+    - "&7Shift+esquerdo: &fcopiar cor"
+    - "&7Direito: &fferramentas"
+    - "&7Q: &fdesfazer &8| &7F: &frefazer"
+
+  # --- finalizar / enviar
+  finished: "&aDesenho #{id} finalizado! &7Para enviar, &fsolte o mapa (Q)&7 no chao."
+  submitted: "&aSeu desenho foi enviado para avaliacao! &7Participacao &e#{id}&7."
+  drop-not-owner: "&cEste mapa pertence a &f{owner}&c; so o dono pode enviar."
+  drop-must-finish: "&cFinalize o desenho #{id} antes de enviar (/desenhar abrir > ferramentas > Finalizar)."
+  drop-already-submitted: "&cO desenho #{id} ja foi enviado. Esta copia foi removida."
+  cartography-blocked: "&cMapas de desenhos nao podem ser copiados nem modificados."
+  admin-new-submission: "&e{player} &7enviou um desenho &8(participacao #{id}). &aClique para ver."
+
+  # --- itens
+  item-name: "&e&lDesenho #{id}"
+  item-lore-draft:
+    - "&7Autor: &f{player}"
+    - "&7Estado: &fem edicao"
+    - "&8Use /desenhar abrir para editar"
+  item-lore-finished:
+    - "&7Autor: &f{player}"
+    - "&7Estado: &afinalizado"
+    - "&8Solte (Q) no chao para enviar"
+  item-lore-submitted:
+    - "&7Autor: &f{player}"
+    - "&7Estado: &benviado"
+  item-lore-view:
+    - "&7Copia de visualizacao"
+    - "&8Solte no chao para destruir"
+
+  # --- avaliacao
+  review-map-name: "&e&lParticipacao #{id}"
+  review-map-lore:
+    - "&7Jogador: &f{player}"
+    - "&7Enviado em: &f{date}"
+    - "&7Status: {status}"
+    - "&7Avaliado por: &f{reviewer} &7em &f{reviewed}"
+    - "&7Motivo: &f{note}"
+    - "&8Clique no mapa para receber uma copia e ver em tamanho real"
+  status-pending: "&ependente"
+  status-approved: "&aaprovado"
+  status-rejected: "&crejeitado"
+  list-header: "&6Avaliacoes &8(&e{pending} pendentes&8, &a{approved} aprovadas&8, &c{rejected} rejeitadas&8) &7filtro: &f{filter}"
+  list-line: "&e#{id} &7- &f{player} &7- {date} &7- {status}"
+  list-empty: "&7Nenhuma participacao neste filtro."
+  list-footer: "&7Pagina &f{page}&7/&f{pages}"
+  usage-ver: "&cUso: /desenhar ver <id>"
+  usage-aprovar: "&cUso: /desenhar aprovar <id>"
+  usage-rejeitar: "&cUso: /desenhar rejeitar <id> [motivo]"
+  submission-not-found: "&cParticipacao nao encontrada."
+  already-reviewed: "&cA participacao #{id} ja foi avaliada."
+  review-done-approved: "&aParticipacao #{id} de {player} aprovada."
+  review-done-rejected: "&cParticipacao #{id} de {player} rejeitada."
+  view-copy-given: "&7Voce recebeu uma copia de visualizacao. Solte-a no chao quando terminar."
+  console-view: "Participacao #{id} | jogador: {player} | enviada em: {date} | status: {status}"
+
+  # --- resultado enviado ao jogador
+  result-approved: "&aSeu desenho foi &lAPROVADO&a! &7(participacao #{id}, avaliado por {reviewer})"
+  result-rejected: "&cSeu desenho foi &lREJEITADO&c. &7(participacao #{id}, avaliado por {reviewer})"
+  result-note: "&7Motivo: &f{note}"
+  title-approved: "&a&lAprovado!"
+  title-rejected: "&c&lRejeitado"
+  title-subtitle: "&7Participacao #{id}"
